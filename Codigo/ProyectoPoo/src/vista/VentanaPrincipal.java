@@ -20,10 +20,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     public VentanaPrincipal() {
         initComponents(); //construye toda la interfaz grafica
-        
+
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -60,6 +59,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableMatriculas = new javax.swing.JTable();
         btnIrPensiones = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -87,6 +87,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnBuscarBecas = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTableBecas = new javax.swing.JTable();
+        btnNuevoRegistro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -162,6 +163,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 252, -1));
 
         cmbNivelAcademico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Secundaria ", "Bachillerato" }));
+        cmbNivelAcademico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNivelAcademicoActionPerformed(evt);
+            }
+        });
         jPanel1.add(cmbNivelAcademico, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 100, 30));
 
         jLabel22.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
@@ -210,6 +216,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -224,22 +232,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnProcesarMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtAnioMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtAnioMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtIdMatriculaEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnProcesarMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(93, 93, 93)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(94, 94, 94))
         );
@@ -264,9 +274,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
                             .addComponent(txtAnioMatricula))
-                        .addGap(29, 29, 29)
+                        .addGap(50, 50, 50)
                         .addComponent(btnProcesarMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         jTabbedPanePrincipal.addTab("Matricula", jPanel2);
@@ -511,43 +522,59 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(jTableBecas);
 
+        btnNuevoRegistro.setFont(new java.awt.Font("Palatino Linotype", 0, 14)); // NOI18N
+        btnNuevoRegistro.setText("Registar Otro Estudiante");
+        btnNuevoRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoRegistroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(248, 248, 248)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(271, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnNuevoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtIdEstudianteBecas, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
+                        .addGap(43, 43, 43)
                         .addComponent(btnBuscarBecas, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(248, 248, 248)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
-                            .addComponent(txtIdEstudianteBecas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
+                            .addComponent(txtIdEstudianteBecas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19))
+                        .addGap(35, 35, 35)
                         .addComponent(btnBuscarBecas, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(228, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(87, 87, 87)
+                .addComponent(btnNuevoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         jTabbedPanePrincipal.addTab("Historial Becas", jPanel5);
@@ -568,7 +595,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btnGenerarReporteMorosidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteMorosidadActionPerformed
         try {
-
             javax.swing.table.DefaultTableModel modeloTabla = (javax.swing.table.DefaultTableModel) jTableMorosos.getModel();
             modeloTabla.setRowCount(0);
 
@@ -586,22 +612,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 modelo.Estudiante est = todosLosAlumnos.get(i);
                 int contadorPensionesPendientes = 0;
 
-                for (int j = 0; j < est.getRegistroPensiones().size(); j++) {
-                    modelo.Pension pen = est.getRegistroPensiones().get(j);
-                    if (pen.getEstadoPago().equals("Pendiente")) {
-                        contadorPensionesPendientes++;
+                if (est.getRegistroPensiones() != null) {
+                    for (int j = 0; j < est.getRegistroPensiones().size(); j++) {
+                        modelo.Pension pen = est.getRegistroPensiones().get(j);
+
+                        if (pen.getEstadoPago() != null && pen.getEstadoPago().equalsIgnoreCase("Pendiente")) {
+                            contadorPensionesPendientes++;
+                        }
                     }
                 }
 
                 if (contadorPensionesPendientes > 2) {
                     encontramosMorosos = true;
 
-                    String telefonoRep = est.getNombreDelRepresentante() != null ? "Ver en Registro" : "N/A";
+                    String nombreRep = est.getNombreDelRepresentante() != null ? est.getNombreDelRepresentante() : "Sin Representante";
+                    String telefonoRep = "Ver en Registro";
 
                     Object[] fila = new Object[]{
                         est.getNombreCompleto(),
                         contadorPensionesPendientes + " meses",
-                        est.getNombreDelRepresentante(),
+                        nombreRep,
                         telefonoRep
                     };
 
@@ -612,11 +642,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             if (!encontramosMorosos) {
                 javax.swing.JOptionPane.showMessageDialog(this, "No se registran representantes con más de 2 meses de retraso.");
             } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Reporte generado con éxito.");
+                javax.swing.JOptionPane.showMessageDialog(this, "Reporte de morosidad generado con éxito.");
             }
 
         } catch (Exception ex) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error al generar el reporte: " + ex.getMessage());
+            ex.printStackTrace();
         }
 
     }//GEN-LAST:event_btnGenerarReporteMorosidadActionPerformed
@@ -630,7 +661,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 return;
             }
 
-            modelo.Estudiante est = sistema.buscarEstudiante(cedula);
+            controlador.ArchivoLectura lectorAux = new controlador.ArchivoLectura();
+            java.util.ArrayList<modelo.Estudiante> listaActualizada = lectorAux.cargarTodo();
+
+            modelo.Estudiante est = null;
+
+            if (listaActualizada != null) {
+                for (int i = 0; i < listaActualizada.size(); i++) {
+                    try {
+                        int idListaNum = Integer.parseInt(listaActualizada.get(i).getCedula().trim());
+                        int idBuscarNum = Integer.parseInt(cedula);
+                        if (idListaNum == idBuscarNum) {
+                            est = listaActualizada.get(i);
+                            break;
+                        }
+                    } catch (NumberFormatException e) {
+                        if (listaActualizada.get(i).getCedula().trim().equalsIgnoreCase(cedula)) {
+                            est = listaActualizada.get(i);
+                            break;
+                        }
+                    }
+                }
+            }
+
             if (est == null) {
                 javax.swing.JOptionPane.showMessageDialog(this, "Estudiante no encontrado.");
                 return;
@@ -640,28 +693,34 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             modeloTabla.setRowCount(0);
 
             java.util.ArrayList<modelo.Pension> pensiones = est.getRegistroPensiones();
-            for (int i = 0; i < pensiones.size(); i++) {
-                modelo.Pension p = pensiones.get(i);
-                Object[] fila = new Object[]{
-                    p.getIdFactura(),
-                    p.getMes(),
-                    txtAnioPension.getText(),
-                    "$" + p.getDescuentoAplicado(),
-                    "$" + p.getMontoFinal(),
-                    p.getEstadoPago()
-                };
-                modeloTabla.addRow(fila);
+
+            if (pensiones != null) {
+                for (int i = 0; i < pensiones.size(); i++) {
+                    modelo.Pension p = pensiones.get(i);
+
+                    // Extrae los datos usando los getters correspondientes de tu modelo
+                    Object[] fila = new Object[]{
+                        p.getIdFactura(),
+                        p.getMes(),
+                        txtAnioPension.getText(), // Usa el año escrito en la interfaz
+                        "$" + p.getDescuentoAplicado(),
+                        "$" + p.getMontoFinal(),
+                        p.getEstadoPago()
+                    };
+                    modeloTabla.addRow(fila);
+                }
             }
 
         } catch (Exception ex) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error al cargar la tabla: " + ex.getMessage());
-
         }
+
     }//GEN-LAST:event_btnVerPensionesActionPerformed
 
     private void btnMarcarPagadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcarPagadaActionPerformed
         try {
-            int filaSeleccionada = jTablePensiones.getSelectedRow(); //getSelectedRow Devuelve el numero de la fila seleccionada en la tabla
+
+            int filaSeleccionada = jTablePensiones.getSelectedRow();
             String cedula = txtIdEstudiantePension.getText().trim();
 
             if (filaSeleccionada == -1) {
@@ -669,24 +728,64 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 return;
             }
 
-            String idFactura = jTablePensiones.getValueAt(filaSeleccionada, 0).toString(); //Primera columna 
+            String idFactura = jTablePensiones.getValueAt(filaSeleccionada, 0).toString();
 
-            modelo.Estudiante est = sistema.buscarEstudiante(cedula);
-            if (est != null) {
+            controlador.ArchivoLectura lectorAux = new controlador.ArchivoLectura();
+            java.util.ArrayList<modelo.Estudiante> listaActualizada = lectorAux.cargarTodo();
+
+            modelo.Estudiante est = null;
+            int posicionEstudiante = -1;
+
+            if (listaActualizada != null) {
+                for (int i = 0; i < listaActualizada.size(); i++) {
+                    try {
+                        int idListaNum = Integer.parseInt(listaActualizada.get(i).getCedula().trim());
+                        int idBuscarNum = Integer.parseInt(cedula);
+                        if (idListaNum == idBuscarNum) {
+                            est = listaActualizada.get(i);
+                            posicionEstudiante = i;
+                            break;
+                        }
+                    } catch (NumberFormatException e) {
+                        if (listaActualizada.get(i).getCedula().trim().equalsIgnoreCase(cedula)) {
+                            est = listaActualizada.get(i);
+                            posicionEstudiante = i;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (est != null && posicionEstudiante != -1) {
+                boolean facturaEncontrada = false;
 
                 for (int i = 0; i < est.getRegistroPensiones().size(); i++) {
                     modelo.Pension p = est.getRegistroPensiones().get(i);
                     if (p.getIdFactura().equals(idFactura)) {
+                        // Cambia el estado interno de la pensión
                         p.marcarComoPagada();
+                        facturaEncontrada = true;
                         break;
                     }
                 }
 
-                sistema.registrarEstudiante(est);
+                if (facturaEncontrada) {
+                    // Modificamos al estudiante en la lista global
+                    listaActualizada.set(posicionEstudiante, est);
 
-                javax.swing.JOptionPane.showMessageDialog(this, "¡Pensión marcada como PAGADA con éxito!");
+                    // Guardamos los cambios permanentemente en el archivo binario
+                    controlador.ArchivoEscritura escritor = new controlador.ArchivoEscritura();
+                    escritor.guardarTodo(listaActualizada);
 
-                btnVerPensionesActionPerformed(evt);
+                    javax.swing.JOptionPane.showMessageDialog(this, "¡Pensión marcada como PAGADA con éxito!");
+
+                    // Forzamos a la tabla a refrescarse visualmente en pantalla
+                    btnVerPensionesActionPerformed(evt);
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "No se encontró el ID de la factura.");
+                }
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Estudiante no encontrado en el archivo.");
             }
         } catch (Exception ex) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error al procesar el pago: " + ex.getMessage());
@@ -699,26 +798,75 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             String cedula = txtIdEstudiantePension.getText().trim();
             String mes = txtMesPension.getText().trim();
 
-            if (cedula.isEmpty() || mes.isEmpty()) { //Aqui valia si no estan vacios la cedula o el mes.
+            if (cedula.isEmpty() || mes.isEmpty()) {
                 javax.swing.JOptionPane.showMessageDialog(this, "Por favor, llene el ID del estudiante y el Mes.");
                 return;
             }
 
-            modelo.Estudiante est = sistema.buscarEstudiante(cedula);
+            controlador.ArchivoLectura lectorAux = new controlador.ArchivoLectura();
+            java.util.ArrayList<modelo.Estudiante> listaActualizada = lectorAux.cargarTodo();
+
+            modelo.Estudiante est = null;
+            int posicionEstudiante = -1;
+
+            if (listaActualizada != null) {
+                for (int i = 0; i < listaActualizada.size(); i++) {
+                    if (listaActualizada.get(i).getCedula().trim().equalsIgnoreCase(cedula)) {
+                        est = listaActualizada.get(i);
+                        posicionEstudiante = i;
+                        break;
+                    }
+                }
+            }
+
             if (est == null) {
-                javax.swing.JOptionPane.showMessageDialog(this, "El estudiante con ID " + cedula + " no está registrado.");
+                javax.swing.JOptionPane.showMessageDialog(this, "Estudiante no encontrado.");
                 return;
             }
 
-            boolean tieneHermanos = false;
-            sistema.facturarMes(mes, cedula, tieneHermanos);
+            boolean esHermano = false;
+            String representanteBuscar = est.getNombreDelRepresentante();
+            int contadorHermanos = 0;
 
-            javax.swing.JOptionPane.showMessageDialog(this, "¡Pensión de " + mes + " generada exitosamente para " + est.getNombreCompleto() + "!");
+            if (representanteBuscar != null && !representanteBuscar.trim().isEmpty() && listaActualizada != null) {
+                for (modelo.Estudiante e : listaActualizada) {
+                    if (e.getNombreDelRepresentante() != null
+                            && e.getNombreDelRepresentante().trim().equalsIgnoreCase(representanteBuscar.trim())) {
+                        contadorHermanos++;
+                    }
+                }
+            }
+
+            if (contadorHermanos > 1) {
+                esHermano = true;
+            }
+
+            double costoBase = 120.0;
+            double descuento = esHermano ? (costoBase * 0.20) : 0.0;
+            double montoFinal = costoBase - descuento;
+            String idFactura = "FAC-" + (int) (Math.random() * 9000 + 1000);
+
+            modelo.Pension nuevaPension = new modelo.Pension(idFactura, mes, montoFinal, descuento, "Pendiente");
+
+            if (est.getRegistroPensiones() == null) {
+                est.setRegistroPensiones(new java.util.ArrayList<>());
+            }
+
+            est.agregarPension(nuevaPension);
+
+            listaActualizada.set(posicionEstudiante, est);
+            controlador.ArchivoEscritura escritor = new controlador.ArchivoEscritura();
+            escritor.guardarTodo(listaActualizada);
+
+            javax.swing.JOptionPane.showMessageDialog(this, "Pensión generada. " + (esHermano ? "Se aplicó 20% por hermano." : ""));
+            btnVerPensionesActionPerformed(evt);
 
         } catch (Exception ex) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Error al generar pensión: " + ex.getMessage());
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+            ex.printStackTrace();
         }
-        
+
+
     }//GEN-LAST:event_btnGenerarPensionActionPerformed
 
     private void txtAnioPensionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioPensionActionPerformed
@@ -733,57 +881,68 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             java.util.ArrayList<modelo.Estudiante> listaActualizada = lectorAux.cargarTodo();
 
             modelo.Estudiante estudianteEncontrado = null;
+
+            //Buscar al estudiante actual
             if (listaActualizada != null) {
-                for (int i = 0; i < listaActualizada.size(); i++) {
-                    if (listaActualizada.get(i).getCedula().trim().equals(idBuscar)) { //la cedula del estudiante en esa posicion va a compararse con el id que pone el usuario 
-                        estudianteEncontrado = listaActualizada.get(i);
+                for (modelo.Estudiante e : listaActualizada) {
+                    if (e.getCedula().trim().equals(idBuscar)) {
+                        estudianteEncontrado = e;
                         break;
                     }
                 }
             }
 
             if (estudianteEncontrado == null) {
-                javax.swing.JOptionPane.showMessageDialog(this, "El estudiante con ID " + idBuscar + " no está registrado.");
+                javax.swing.JOptionPane.showMessageDialog(this, "Estudiante no encontrado.");
                 return;
             }
 
-            System.out.println("Estudiante encontrado: " + estudianteEncontrado.getCedula());
+            //Lógica de hermanos: Contar cuántos estudiantes tienen el mismo representante
+            int contadorHermanos = 0;
+            String representanteActual = estudianteEncontrado.getNombreDelRepresentante();
 
-            javax.swing.table.DefaultTableModel modeloTabla = (javax.swing.table.DefaultTableModel) jTableMatriculas.getModel();
-            modeloTabla.setRowCount(0); 
-            //Limpia la tabla borrando filas anteriores para no duplicar los datos.
+            System.out.println("Buscando hermanos para: " + representanteActual);
 
-            int anioMatricula = 2026;
-            try {
+            if (representanteActual != null && !representanteActual.trim().isEmpty()) {
+                for (modelo.Estudiante e : listaActualizada) {
+                    String repLista = e.getNombreDelRepresentante();
+                    if (repLista != null && repLista.trim().equalsIgnoreCase(representanteActual.trim())) {
+                        contadorHermanos++;
 
-            } catch (Exception e) {
-                System.out.println("Error al leer el año, se usará 2026 por defecto.");
+                        System.out.println("Encontré a: " + e.getNombreCompleto() + " con el mismo representante.");
+                    }
+                }
             }
+            System.out.println("Total de hermanos encontrados: " + contadorHermanos);
 
+            //Cálculo del descuento
             double costoBase = 120.0;
             double descuento = 0.0;
 
+            if (contadorHermanos > 1) {
+                descuento = costoBase * 0.20; // 20%
+                System.out.println("Hermanos detectados: " + contadorHermanos);
+            }
+
             double totalPagar = costoBase - descuento;
 
-            System.out.println("Cálculos listos - Total: " + totalPagar);
+            javax.swing.table.DefaultTableModel modeloTabla = (javax.swing.table.DefaultTableModel) jTableMatriculas.getModel();
+            modeloTabla.setRowCount(0);
 
             Object[] fila = new Object[]{
                 estudianteEncontrado.getCedula(),
-                anioMatricula,
-                "$" + costoBase,
-                "$" + descuento,
-                "$" + totalPagar
+                2026,
+                "$" + String.format("%.2f", costoBase),
+                "$" + String.format("%.2f", descuento),
+                "$" + String.format("%.2f", totalPagar)
             };
 
             modeloTabla.addRow(fila);
-            System.out.println("¡Fila añadida a la tabla con éxito!");
 
         } catch (Exception ex) {
-
-            javax.swing.JOptionPane.showMessageDialog(this, "Error durante el procesamiento: " + ex.getMessage());
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
             ex.printStackTrace();
         }
-
     }//GEN-LAST:event_btnProcesarMatriculaActionPerformed
 
     private void btnBuscarBecasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarBecasActionPerformed
@@ -796,50 +955,99 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 return;
             }
 
-            controlador.ArchivoLectura lectorAux = new controlador.ArchivoLectura(); //creas un controlador que lee el archivo
-            java.util.ArrayList<modelo.Estudiante> listaAlumnos = lectorAux.cargarTodo();//Carga todos los objectos estudiantes
+            controlador.ArchivoLectura lectorAux = new controlador.ArchivoLectura();
+            java.util.ArrayList<modelo.Estudiante> listaAlumnos = lectorAux.cargarTodo();
 
             modelo.Estudiante estudianteEncontrado = null;
+
             if (listaAlumnos != null) {
                 for (int i = 0; i < listaAlumnos.size(); i++) {
-                    if (listaAlumnos.get(i).getCedula().equals(cedula)) {
-                        estudianteEncontrado = listaAlumnos.get(i);
-                        break;
+                    try {
+                        int idListaNum = Integer.parseInt(listaAlumnos.get(i).getCedula().trim());
+                        int idBuscarNum = Integer.parseInt(cedula);
+
+                        if (idListaNum == idBuscarNum) {
+                            estudianteEncontrado = listaAlumnos.get(i);
+                            break;
+                        }
+                    } catch (NumberFormatException e) {
+                        if (listaAlumnos.get(i).getCedula().trim().equalsIgnoreCase(cedula)) {
+                            estudianteEncontrado = listaAlumnos.get(i);
+                            break;
+                        }
                     }
                 }
             }
 
             if (estudianteEncontrado == null) {
-                javax.swing.JOptionPane.showMessageDialog(this, "El estudiante con ID " + cedula + " no se encuentra registrado.");
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "El estudiante con ID " + cedula + " no se encuentra registrado.");
                 return;
             }
 
             javax.swing.table.DefaultTableModel modeloTabla = (javax.swing.table.DefaultTableModel) jTableBecas.getModel();
             modeloTabla.setRowCount(0);
 
-            java.util.ArrayList<modelo.Beca> becas = estudianteEncontrado.getHistorialBecas(); //Obtiene la lista de objetos de beca
+            boolean tieneHermanos = false;
+            String representanteBuscar = estudianteEncontrado.getNombreDelRepresentante();
+            int contadorHermanos = 0;
 
-            if (becas == null || becas.isEmpty()) {
-                javax.swing.JOptionPane.showMessageDialog(this, "El estudiante " + estudianteEncontrado.getNombreCompleto() + " no tiene becas asignadas.");
+            if (representanteBuscar != null && !representanteBuscar.trim().isEmpty() && listaAlumnos != null) {
+                for (int i = 0; i < listaAlumnos.size(); i++) {
+                    String repLista = listaAlumnos.get(i).getNombreDelRepresentante();
+                    if (repLista != null && repLista.trim().equalsIgnoreCase(representanteBuscar.trim())) {
+                        contadorHermanos++;
+                    }
+                }
+            }
+
+            if (contadorHermanos > 1) {
+                tieneHermanos = true;
+            }
+
+            java.util.ArrayList<modelo.Beca> becas = estudianteEncontrado.getHistorialBecas();
+            boolean cargoAlgo = false;
+
+            if (becas != null && !becas.isEmpty()) {
+                for (int i = 0; i < becas.size(); i++) {
+                    modelo.Beca b = becas.get(i);
+
+                    Object[] fila = new Object[]{
+                        b.getNombreBeca(),
+                        b.getPorcentajeDescuento() + "%",
+                        b.getPeriodoAcademico()
+
+                    };
+                    modeloTabla.addRow(fila);
+                    cargoAlgo = true;
+                }
+            }
+
+            if (tieneHermanos) {
+                Object[] filaHermano = new Object[]{
+                    "Descuento Automático por Hermanos",
+                    "20%",
+                    "Periodo 2026"
+                };
+                modeloTabla.addRow(filaHermano);
+                cargoAlgo = true;
+            }
+
+            if (!cargoAlgo) {
+                javax.swing.JOptionPane.showMessageDialog(this, "El estudiante "
+                        + estudianteEncontrado.getNombreCompleto()
+                        + " no cuenta con becas ni descuentos de hermanos asignados.");
                 return;
             }
 
-            for (int i = 0; i < becas.size(); i++) {
-                modelo.Beca b = becas.get(i);
-
-                Object[] fila = new Object[]{
-                    b.getNombreBeca(),
-                    b.getPorcentajeDescuento() + "%",
-                    b.getPeriodoAcademico()
-                };
-
-                modeloTabla.addRow(fila);
-            }
-
-            javax.swing.JOptionPane.showMessageDialog(this, "Historial de becas cargado para: " + estudianteEncontrado.getNombreCompleto());
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Historial de beneficios cargado para: "
+                    + estudianteEncontrado.getNombreCompleto());
 
         } catch (Exception ex) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Error al consultar el historial de becas: " + ex.getMessage());
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al consultar el historial de becas: " + ex.getMessage());
+            ex.printStackTrace();
         }
 
     }//GEN-LAST:event_btnBuscarBecasActionPerformed
@@ -851,8 +1059,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             String nombre = txtNombreEst.getText().trim();
             String nivelAcademico = cmbNivelAcademico.getSelectedItem().toString();//convierte el objecto en texto con el to string
 
+            String nombreRep = txtNombreRep.getText().trim(); // ¡Asegúrate de que el nombre del campo sea correcto!
+
             modelo.Estudiante nuevoEstudiante = new modelo.Estudiante(
-                    cedula, nombre, nivelAcademico, 0.0, "", new java.util.ArrayList<>(), new java.util.ArrayList<>()
+                    cedula, nombre, nivelAcademico, 0.0, nombreRep, new java.util.ArrayList<>(), new java.util.ArrayList<>()
             );
 
             controlador.ArchivoLectura lectorAux = new controlador.ArchivoLectura();
@@ -897,6 +1107,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnIrPensionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIrPensionesActionPerformed
         jTabbedPanePrincipal.setSelectedIndex(2);
     }//GEN-LAST:event_btnIrPensionesActionPerformed
+
+    private void btnNuevoRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoRegistroActionPerformed
+
+        txtIdEstudianteBecas.setText("");
+
+        jTabbedPanePrincipal.setSelectedIndex(0);
+
+
+    }//GEN-LAST:event_btnNuevoRegistroActionPerformed
+
+    private void cmbNivelAcademicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNivelAcademicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbNivelAcademicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -945,10 +1168,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnIrMorosidad;
     private javax.swing.JButton btnIrPensiones;
     private javax.swing.JButton btnMarcarPagada;
+    private javax.swing.JButton btnNuevoRegistro;
     private javax.swing.JButton btnProcesarMatricula;
     private javax.swing.JButton btnRegistrarYContinuar;
     private javax.swing.JButton btnVerPensiones;
     private javax.swing.JComboBox<String> cmbNivelAcademico;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

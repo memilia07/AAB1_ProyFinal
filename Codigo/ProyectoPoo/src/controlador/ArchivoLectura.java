@@ -20,7 +20,7 @@ public class ArchivoLectura {
             ObjectInputStream lectorObjeto = new ObjectInputStream(archivo);
 
             ArrayList<Estudiante> lista = (ArrayList<Estudiante>) lectorObjeto.readObject();
-  //Lee el archivo y convierte datos otra vez en objetos se llama deserializacion.
+            //Lee el archivo y convierte datos otra vez en objetos se llama deserializacion.
             lectorObjeto.close();
             archivo.close();
             return lista;
